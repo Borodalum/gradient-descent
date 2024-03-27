@@ -1,6 +1,6 @@
 import numpy as np
 
-def golden_section_search(f, gradient, x, y, grad, epsilon):
+def golden_section_search(f, x, y, grad, epsilon):
     phi = (1 + np.sqrt(5)) / 2  # Золотое сечение
     resphi = 2 - phi
 
