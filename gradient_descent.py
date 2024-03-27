@@ -1,4 +1,3 @@
-import numpy as np
 import time
 from golden_section_search import golden_section_search
 

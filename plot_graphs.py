@@ -1,7 +1,6 @@
 def plot_graphs(f, x_opt, y_opt, x_range=(-5, 5), y_range=(-5, 5)):
     import matplotlib.pyplot as plt
     import numpy as np
-    from mpl_toolkits.mplot3d import Axes3D
 
     # Создание 3D графика
     fig = plt.figure()
