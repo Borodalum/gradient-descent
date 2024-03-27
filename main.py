@@ -37,8 +37,8 @@ x_opt1, y_opt1, num_iterations1, execution_time1 = gradient_descent(f1, gradient
 print("Функция x^2 * y^2 * log(x^2 + y^2):")
 print(f"Критерий останова: |delta f| < 1e-8")
 print(f"Число итераций: {num_iterations1}")
-print(f"Полученная точка: ({x_opt1}, {y_opt1})")
-print(f"Полученное значение функции: {f1(x_opt1, y_opt1)}")
+print(f"Полученная точка: ({x_opt1[-1]}, {y_opt1[-1]})")
+print(f"Полученное значение функции: {f1(x_opt1[-1], y_opt1[-1])}")
 print(f"Время работы: {execution_time1:.4f} сек")
 plot_graphs(f1, x_opt1, y_opt1)
 
@@ -48,8 +48,8 @@ x_opt2, y_opt2, num_iterations2, execution_time2 = gradient_descent(f2, gradient
 print("\nФункция x^2 * y^2 * log(8x^2 + 3y^2):")
 print(f"Критерий останова: |delta f| < 1e-8")
 print(f"Число итераций: {num_iterations2}")
-print(f"Полученная точка: ({x_opt2}, {y_opt2})")
-print(f"Полученное значение функции: {f2(x_opt2, y_opt2)}")
+print(f"Полученная точка: ({x_opt2[-1]}, {y_opt2[-1]})")
+print(f"Полученное значение функции: {f2(x_opt2[-1], y_opt2[-1])}")
 print(f"Время работы: {execution_time2:.4f} сек")
 plot_graphs(f2, x_opt2, y_opt2)
 
