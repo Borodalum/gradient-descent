@@ -1,26 +1,26 @@
-import math
 from gradient_descent import gradient_descent
 import numpy as np
 from scipy.optimize import minimize
+from plot_graphs import plot_graphs
 
 # Определение функции x^2 * y^2 * log(x^2 + y^2)
 def f1(x, y):
-    return x ** 2 * y ** 2 * math.log(x ** 2 + y ** 2)
+    return x ** 2 * y ** 2 * np.log(x ** 2 + y ** 2)
 
 # Определение градиента функции x^2 * y^2 * log(x^2 + y^2)
 def gradient1(x, y):
-    df_dx = 2 * x * y ** 2 * (math.log(x ** 2 + y ** 2) + x ** 2 / (x ** 2 + y ** 2))
-    df_dy = 2 * x ** 2 * y * (math.log(x ** 2 + y ** 2) + y ** 2 / (x ** 2 + y ** 2))
+    df_dx = 2 * x * y ** 2 * (np.log(x ** 2 + y ** 2) + x ** 2 / (x ** 2 + y ** 2))
+    df_dy = 2 * x ** 2 * y * (np.log(x ** 2 + y ** 2) + y ** 2 / (x ** 2 + y ** 2))
     return np.array([df_dx, df_dy])
 
 # Определение функции x^2 * y^2 * log(8x^2 + 3y^2)
 def f2(x, y):
-    return x ** 2 * y ** 2 * math.log(8*x**2 + 3*y**2)
+    return x ** 2 * y ** 2 * np.log(8*x**2 + 3*y**2)
 
 # Определение градиента функции x^2 * y^2 * log(8x^2 + 3y^2)
 def gradient2(x, y):
-    df_dx = 2*x*y**2 * (math.log(8*x**2 + 3*y**2) + 8*x**2/(8*x**2 + 3*y**2))
-    df_dy = 2*x**2 * y * (math.log(8*x**2 + 3*y**2) + 3*y**2/(8*x**2 + 3*y**2))
+    df_dx = 2*x*y**2 * (np.log(8*x**2 + 3*y**2) + 8*x**2/(8*x**2 + 3*y**2))
+    df_dy = 2*x**2 * y * (np.log(8*x**2 + 3*y**2) + 3*y**2/(8*x**2 + 3*y**2))
     return np.array([df_dx, df_dy])
 
 # Начальная точка
@@ -40,6 +40,7 @@ print(f"Число итераций: {num_iterations1}")
 print(f"Полученная точка: ({x_opt1}, {y_opt1})")
 print(f"Полученное значение функции: {f1(x_opt1, y_opt1)}")
 print(f"Время работы: {execution_time1:.4f} сек")
+plot_graphs(f1, x_opt1, y_opt1)
 
 # Вызов функции градиентного спуска для функции x^2 * y^2 * log(8x^2 + 3y^2)
 x_opt2, y_opt2, num_iterations2, execution_time2 = gradient_descent(f2, gradient2, x0, y0)
@@ -50,6 +51,7 @@ print(f"Число итераций: {num_iterations2}")
 print(f"Полученная точка: ({x_opt2}, {y_opt2})")
 print(f"Полученное значение функции: {f2(x_opt2, y_opt2)}")
 print(f"Время работы: {execution_time2:.4f} сек")
+plot_graphs(f2, x_opt2, y_opt2)
 
 def f1_sp(x):
     return f1(x[0], x[1])
@@ -68,4 +70,3 @@ print(f"Полученное значение функции: {f1(res1.x[0], res
 print("\nФункция x^2 * y^2 * log(8x^2 + 3y^2):")
 print(f"Полученная точка: ({res2.x[0]}, {res2.x[1]})")
 print(f"Полученное значение функции: {f2(res2.x[0], res2.x[1])}")
-
