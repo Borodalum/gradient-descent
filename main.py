@@ -1,3 +1,4 @@
+from coordinate_descent import coordinate_descent
 from gradient_descent import gradient_descent
 import numpy as np
 from scipy.optimize import minimize
@@ -70,3 +71,23 @@ print(f"Полученное значение функции: {f1(res1.x[0], res
 print("\nФункция x^2 * y^2 * log(8x^2 + 3y^2):")
 print(f"Полученная точка: ({res2.x[0]}, {res2.x[1]})")
 print(f"Полученное значение функции: {f2(res2.x[0], res2.x[1])}")
+
+# Дополнительное задание 1
+
+x_opt1, y_opt1, num_iterations1, execution_time1 = coordinate_descent(f1, gradient1, x0, y0)
+
+print("\nФункция x^2 * y^2 * log(x^2 + y^2):")
+print(f"Критерий останова: |delta f| < 1e-8")
+print(f"Число итераций: {num_iterations1}")
+print(f"Полученная точка: ({x_opt1}, {y_opt1})")
+print(f"Полученное значение функции: {f1(x_opt1, y_opt1)}")
+print(f"Время работы: {execution_time1:.4f} сек")
+
+x_opt2, y_opt2, num_iterations2, execution_time2 = coordinate_descent(f2, gradient2, x0, y0)
+
+print("\nФункция x^2 * y^2 * log(8x^2 + 3y^2):")
+print(f"Критерий останова: |delta f| < 1e-8")
+print(f"Число итераций: {num_iterations2}")
+print(f"Полученная точка: ({x_opt2}, {y_opt2})")
+print(f"Полученное значение функции: {f2(x_opt2, y_opt2)}")
+print(f"Время работы: {execution_time2:.4f} сек")
