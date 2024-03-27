@@ -1,6 +1,7 @@
 import math
 from gradient_descent import gradient_descent
 import numpy as np
+from scipy.optimize import minimize
 
 # Определение функции x^2 * y^2 * log(x^2 + y^2)
 def f1(x, y):
@@ -49,3 +50,22 @@ print(f"Число итераций: {num_iterations2}")
 print(f"Полученная точка: ({x_opt2}, {y_opt2})")
 print(f"Полученное значение функции: {f2(x_opt2, y_opt2)}")
 print(f"Время работы: {execution_time2:.4f} сек")
+
+def f1_sp(x):
+    return f1(x[0], x[1])
+
+def f2_sp(x):
+    return f2(x[0], x[1])
+
+# Сравнение результатов с функцией minimize из библиотеки scipy
+res1 = minimize(f1_sp, [x0, y0], method='Nelder-Mead', tol=1e-8)
+res2 = minimize(f2_sp, [x0, y0], method='Nelder-Mead', tol=1e-8)
+
+print("\nФункция x^2 * y^2 * log(x^2 + y^2):")
+print(f"Полученная точка: ({res1.x[0]}, {res1.x[1]})")
+print(f"Полученное значение функции: {f1(res1.x[0], res1.x[1])}")
+
+print("\nФункция x^2 * y^2 * log(8x^2 + 3y^2):")
+print(f"Полученная точка: ({res2.x[0]}, {res2.x[1]})")
+print(f"Полученное значение функции: {f2(res2.x[0], res2.x[1])}")
+
