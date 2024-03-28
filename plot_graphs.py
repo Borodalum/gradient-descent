@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def plot_graphs(f, x_opt, y_opt, x_range=(-2.5, 2.5), y_range=(-2.5, 2.5)):
 
+def plot_graphs(f, x_opt, y_opt, x_range=(-2.5, 2.5), y_range=(-2.5, 2.5)):
     # Создание 3D графика
     fig = plt.figure("Градиентный спуск")
     X = np.linspace(*x_range, 40)

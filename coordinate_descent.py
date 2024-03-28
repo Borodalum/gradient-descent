@@ -2,6 +2,7 @@ import time
 
 from golden_section_search import golden_section_search
 
+
 def coordinate_descent(f, gradient, x0, y0, learning_rate=golden_section_search, epsilon=1e-8, num_iterations=1000):
     x_prev = x0
     y_prev = y0
