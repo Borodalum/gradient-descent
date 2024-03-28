@@ -133,3 +133,18 @@ print(f"Число итераций: {num_iterations}")
 print(f"Полученная точка: ({points[-1][0]}, {points[-1][1]}, {points[-1][2]})")
 print(f"Полученное значение функции: {f3(points[-1][0], points[-1][1], points[-1][2])}")
 print(f"Время работы: {execution_time:.4f} сек")
+
+
+def f1_with_noise(x, y):
+    return f1(x, y) + np.random.normal(0, 0.000001)
+
+
+# because of the noise the result will be different every time
+x, y, num_iterations, execution_time = gradient_descent(f1_with_noise, gradient1, x0, y0)
+
+print("\nФункция x^2 * y^2 * log(x^2 + y^2) с шумом:")
+print(f"Критерий останова: |delta f| < 1e-8")
+print(f"Число итераций: {num_iterations}")
+print(f"Полученная точка: ({x[-1]}, {y[-1]})")
+print(f"Полученное значение функции: {f1(x[-1], y[-1])}")
+print(f"Время работы: {execution_time:.4f} сек")
