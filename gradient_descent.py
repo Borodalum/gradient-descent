@@ -1,8 +1,9 @@
+import math
 import time
 from golden_section_search import golden_section_search
 
 
-def gradient_descent(f, gradient, x0, y0, learning_rate=golden_section_search, epsilon=1e-8, num_iterations=1000):
+def gradient_descent(f, gradient, x0, y0, learning_rate=golden_section_search, epsilon=1e-6, num_iterations=2000):
     x_prev = x0
     y_prev = y0
 
@@ -22,7 +23,7 @@ def gradient_descent(f, gradient, x0, y0, learning_rate=golden_section_search, e
         x_cur = x_prev - learning_rate_val * grad[0]
         y_cur = y_prev - learning_rate_val * grad[1]
         x.append(x_cur), y.append(y_cur)
-        if abs(f(x_cur, y_cur) - f(x_prev, y_prev)) < epsilon:
+        if abs(f(x_cur, y_cur) - f(x_prev, y_prev)) < epsilon or math.isnan(abs(f(x_cur, y_cur) - f(x_prev, y_prev))):
             break
         x_prev, y_prev = x_cur, y_cur
 
